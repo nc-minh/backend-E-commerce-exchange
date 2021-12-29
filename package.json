@@ -1,0 +1,28 @@
+{
+  "name": "backend-e-commerce-exchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nc-minh/backend-E-commerce-exchange.git"
+  },
+  "keywords": [
+    "backend",
+    "server",
+    "nodejs",
+    "ncm"
+  ],
+  "author": "ncm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nc-minh/backend-E-commerce-exchange/issues"
+  },
+  "homepage": "https://github.com/nc-minh/backend-E-commerce-exchange#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
