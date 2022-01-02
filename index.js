@@ -4,6 +4,11 @@ require('dotenv').config()
 const port = process.env.PORT || 3000
 
 app.use(express.json())
+var bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 //connect DB
 const DB = require('./src/app/models/connectDB')
