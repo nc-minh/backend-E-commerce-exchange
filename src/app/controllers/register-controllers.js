@@ -51,7 +51,8 @@ class RegisterControllers{
                 console.log('Failure!')
                 console.log(err)
                 res.json({
-                    message: 'Tạo tài khoản thất bại!'
+                    message: 'Tạo tài khoản thất bại!',
+                    status: 'failure'
                 })
             })
         }
