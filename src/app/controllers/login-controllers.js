@@ -3,11 +3,11 @@ const Accounts = require('../models/accounts')
 
 class LoginControllers{
     
-    login(req, res, next){
+    async login(req, res, next){
         const username = req.body.username
         const password = req.body.password
 
-        Accounts.findOne({
+        await Accounts.findOne({
             username: username,
             password: password
         })
@@ -16,7 +16,7 @@ class LoginControllers{
                 var token = jwt.sign({
                     _id: data._id
                 }, process.env.JWT_SECRET, {
-                    expiresIn: '1d'
+                    expiresIn: '2d'
                 })
 
                 console.log(data)

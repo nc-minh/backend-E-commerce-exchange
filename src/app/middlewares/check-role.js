@@ -2,12 +2,12 @@ const jwt = require('jsonwebtoken')
 const Accounts = require('../models/accounts')
 
 class CheckRoleControllers{
-    checkAdmin(req, res, next){
+    async checkAdmin(req, res, next){
         try {
             const token = req.cookies.tokenLogin
             const verify = jwt.verify(token, process.env.JWT_SECRET)
             if(verify){
-                Accounts.findOne({
+                await Accounts.findOne({
                     _id: verify._id
                 })
                 .then(data => {
@@ -41,6 +41,7 @@ class CheckRoleControllers{
         try {
             const token = req.cookies.tokenLogin
             const verify = jwt.verify(token, process.env.JWT_SECRET)
+            req.verify = verify
             if(verify){
                 next()
             }else{

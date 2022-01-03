@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 const Accounts = new Schema({
     username: String,
     password: String,
-    role: String
+    role: String,
+    image: String,
+    email: String,
+    address: String
 },{
     collection: 'Accounts'
 })
