@@ -25,6 +25,7 @@
   "homepage": "https://github.com/nc-minh/backend-E-commerce-exchange#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",

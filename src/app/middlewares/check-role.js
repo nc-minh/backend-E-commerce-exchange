@@ -3,7 +3,38 @@ const Accounts = require('../models/accounts')
 
 class CheckRoleControllers{
     checkAdmin(req, res, next){
-
+        try {
+            const token = req.cookies.tokenLogin
+            const verify = jwt.verify(token, process.env.JWT_SECRET)
+            if(verify){
+                Accounts.findOne({
+                    _id: verify._id
+                })
+                .then(data => {
+                    if(data.role === 'admin'){
+                        next()
+                    }else{
+                        res.status(203).json({
+                            message: 'Bạn không có quyền!',
+                            status: 'failure'
+                        })
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                    res.status(500).json({
+                        message: err,
+                        status: 'error'
+                    })
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({
+                message: error,
+                status: 'error'
+            })
+        }
     }
 
     checkLogin(req, res, next){
@@ -11,10 +42,6 @@ class CheckRoleControllers{
             const token = req.cookies.tokenLogin
             const verify = jwt.verify(token, process.env.JWT_SECRET)
             if(verify){
-                res.status(200).json({
-                    message: 'Bạn đã đăng nhập!',
-                    status: 'success'
-                })
                 next()
             }else{
                 res.status(203).json({
@@ -25,7 +52,7 @@ class CheckRoleControllers{
         } catch (error) {
             console.log(error)
             res.status(500).json({
-                message: 'Đã xảy ra lỗi!',
+                message: error,
                 status: 'error'
             })
         }

@@ -6,7 +6,6 @@ class LoginControllers{
     login(req, res, next){
         const username = req.body.username
         const password = req.body.password
-        console.log(req)
 
         Accounts.findOne({
             username: username,
@@ -16,7 +15,9 @@ class LoginControllers{
             if(data){
                 var token = jwt.sign({
                     _id: data._id
-                }, process.env.JWT_SECRET)
+                }, process.env.JWT_SECRET, {
+                    expiresIn: '1d'
+                })
 
                 console.log(data)
 
