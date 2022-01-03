@@ -10,9 +10,9 @@ class RegisterControllers{
         console.log(username)
         console.log(password)
 
-        if(username.length < 5 || password.length < 5 || username.length > 24 || password.length > 24){
+        if(username.length < 5 || password.length < 5 || username.length > 254 || password.length > 254){
             res.json({
-                message: 'Tài khoản và mật khẩu phải trên 5 và ít hơn 24 kí tự!',
+                message: 'Tài khoản và mật khẩu phải trên 5 và ít hơn 254 kí tự!',
                 status: 'error-length'
             })
         }else if(!regexCheck){

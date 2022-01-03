@@ -11,12 +11,12 @@ class UpdateProfileControllers {
         if (image.length > 254 || email.length > 254 || address.length > 254) {
             res.json({
                 message: 'Độ dài chuỗi kí tự quá lớn!',
-                status: 'failure'
+                status: 'failure-length'
             })
         } else if (!regexCheck) {
             res.json({
                 message: 'Email bạn vừa nhập không đúng định dạng!',
-                status: 'failure'
+                status: 'failure-format'
             })
         } else if (verify) {
             Accounts.updateOne({
