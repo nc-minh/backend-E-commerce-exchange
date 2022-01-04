@@ -30,10 +30,22 @@ class CheckRoleControllers{
             }
         } catch (error) {
             console.log(error)
-            res.status(500).json({
-                message: error,
-                status: 'error'
-            })
+            if(error.name === 'JsonWebTokenError'){
+                res.status(400).json({
+                    message: 'Token vừa gửi đã sai!',
+                    status: 'error-wrongToken'
+                })
+            }else if(error.name === 'TokenExpiredError'){
+                res.status(400).json({
+                    message: 'Token vừa gửi đã hết hạn!',
+                    status: 'error-tokenExpired'
+                })
+            }else{
+                res.status(500).json({
+                    message: error,
+                    status: 'error'
+                })
+            }
         }
     }
 
@@ -52,10 +64,23 @@ class CheckRoleControllers{
             }
         } catch (error) {
             console.log(error)
-            res.status(500).json({
-                message: error,
-                status: 'error'
-            })
+            
+            if(error.name === 'JsonWebTokenError'){
+                res.status(400).json({
+                    message: 'Token vừa gửi đã sai hoặc thiếu!',
+                    status: 'error-wrongToken'
+                })
+            }else if(error.name === 'TokenExpiredError'){
+                res.status(400).json({
+                    message: 'Token vừa gửi đã hết hạn!',
+                    status: 'error-tokenExpired'
+                })
+            }else{
+                res.status(500).json({
+                    message: error,
+                    status: 'error'
+                })
+            }
         }
     }
 }

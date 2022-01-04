@@ -2,13 +2,15 @@ const express = require('express')
 const router = express.Router()
 
 //controllers
-const registerControllers = require('../app/controllers/register-controllers')
-const loginControllers = require('../app/controllers/login-controllers')
-const updateProfileControllers = require('../app/controllers/update-profile-controllers')
-const updatePasswordControllers = require('../app/controllers/update-password-controllers')
+const registerControllers = require('../app/controllers/accounts/register-controllers')
+const loginControllers = require('../app/controllers/accounts/login-controllers')
+const updateProfileControllers = require('../app/controllers/accounts/update-profile-controllers')
+const updatePasswordControllers = require('../app/controllers/accounts/update-password-controllers')
+const getProfileControllers = require('../app/controllers/accounts/get-profile-controllers')
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
 
+//route list
 router.post('/register', registerControllers.register)
 
 router.post('/login', loginControllers.login)
@@ -17,12 +19,7 @@ router.patch('/update-profile', checkRoleControllers.checkLogin, updateProfileCo
 
 router.patch('/update-password', checkRoleControllers.checkLogin, updatePasswordControllers.updatePassword)
 
-router.get('/test-login', checkRoleControllers.checkLogin, (req, res, next)=>{
-    res.json('bạn đã đăng nhập!')
-})
+router.get('/get-profile', checkRoleControllers.checkLogin, getProfileControllers.getProfile)
 
-router.get('/test-admin', checkRoleControllers.checkAdmin, (req, res, next)=>{
-    res.json('bạn là admin!')
-})
 
 module.exports = router

@@ -1,5 +1,6 @@
-const Accounts = require('../models/accounts')
+const Accounts = require('../../models/accounts')
 class UpdateProfileControllers {
+    // [PATCH: api/update-profile]
     updateProfile(req, res, next) {
         const verify = req.verify
         const image = req.body.image

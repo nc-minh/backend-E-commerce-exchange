@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
-const Accounts = require('../models/accounts')
+const Accounts = require('../../models/accounts')
 
 class LoginControllers{
-    
+    // [POST: api/login]
     async login(req, res, next){
         const username = req.body.username
         const password = req.body.password
@@ -16,7 +16,7 @@ class LoginControllers{
                 var token = jwt.sign({
                     _id: data._id
                 }, process.env.JWT_SECRET, {
-                    expiresIn: '2d'
+                    expiresIn: '20d'
                 })
 
                 console.log(data)

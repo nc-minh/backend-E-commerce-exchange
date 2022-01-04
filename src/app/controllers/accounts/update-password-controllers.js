@@ -1,5 +1,6 @@
-const Accounts = require('../models/accounts')
+const Accounts = require('../../models/accounts')
 class UpdatePassWordControllers {
+    // [PATCH: api/update-password]
     updatePassword(req, res, next){
         const verify = req.verify
         const newPassword = String(req.body.newPassword)

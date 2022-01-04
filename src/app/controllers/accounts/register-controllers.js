@@ -1,5 +1,6 @@
-const Accounts = require('../models/accounts')
+const Accounts = require('../../models/accounts')
 class RegisterControllers{
+    // [POST: api/register]
     register(req, res, next){
         const username = String(req.body.username)
         const password = String(req.body.password)
