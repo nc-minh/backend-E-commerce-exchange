@@ -3,15 +3,15 @@ const Schema = mongoose.Schema
 
 const Products = new Schema({
     name: String,
-    price: Int32Array,
-    quantity: Int32Array,
+    price: Number,
+    quantity: Number,
     img: Array,
     video: Array,
     category: String,
     trademark: String,
-    sold: Int32Array,
+    sold: Number,
     size: Array,
-    discount: Int32Array,
+    discount: Number,
     description: String
 },{
     collection: 'Products'
