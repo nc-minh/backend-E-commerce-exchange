@@ -4,10 +4,12 @@ class GetProductsControllers {
         const limit = Number(req.query.limit)
         const page = Number(req.query.page)
 
+        const STEP = 20
+
         if(limit && page){
             try {
                 Products.find({})
-                .skip(page*20)
+                .skip(page*STEP)
                 .limit(limit)
                 .then(data => {
                     res.json({
@@ -51,8 +53,8 @@ class GetProductsControllers {
         }else if(page){
             try {
                 Products.find({})
-                .skip(page*20)
-                .limit(20)
+                .skip(page*STEP)
+                .limit(STEP)
                 .then(data => {
                     res.json({
                         data: data,
@@ -74,7 +76,7 @@ class GetProductsControllers {
         }else{
             try {
                 Products.find()
-                .limit(20)
+                .limit(STEP)
                 .then(data => {
                     res.json({
                         data: data,
