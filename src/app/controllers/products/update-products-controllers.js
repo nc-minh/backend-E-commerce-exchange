@@ -1,9 +1,9 @@
 const Products = require('../../models/products')
 var xss = require("xss")
+var ObjectID = require('mongodb').ObjectId
 
-class AddProductsControllers {
-    addProducts(req, res, next) {
-
+class UpdateProductsControllers {
+    updateProducts(req, res, next) {
         // get and sanitizing data
         var name = req.body.name || ' '
         var price = req.body.price || 0
@@ -18,14 +18,26 @@ class AddProductsControllers {
         var color = req.body.color || []
         var description = req.body.description || ' '
 
+        
+
+        const _id = req.body._id
+        console.log(price)
+        console.log(color)
+        console.log(trademark)
+
+        console.log(name)
+        console.log(xss(name))
+
         if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || size != xss(size) || discount != xss(discount) || color != xss(color) || description != xss(description)) {
-            console.log('djt me may xss cc')
             res.json({
                 message: 'Ôi bạn ơi xss cc à :))',
                 status: 'error'
             })
         } else {
-            Products.create({
+            
+            Products.updateOne({
+                    "_id": ObjectID(_id)
+                }, {
                     name: name,
                     price: price,
                     quantity: quantity,
@@ -36,14 +48,22 @@ class AddProductsControllers {
                     sold: sold,
                     size: size,
                     discount: discount,
-                    color: color,
-                    description: description
+                    description: description,
+                    color: color
                 })
                 .then(data => {
                     console.log(data)
-                    res.json({
-                        data: data
-                    })
+                    if(data.matchedCount === 0){
+                        res.json({
+                            message: 'Không tìm thấy!'
+                        })
+                    }else{
+                        res.json({
+                            message: 'Cập nhât thành công!',
+                            data: data
+                        })
+                    }
+                    
                 })
                 .catch(err => {
                     console.log(err)
@@ -52,11 +72,7 @@ class AddProductsControllers {
                     })
                 })
         }
-
-
-
-
     }
 }
 
-module.exports = new AddProductsControllers
+module.exports = new UpdateProductsControllers

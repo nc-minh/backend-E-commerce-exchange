@@ -12,7 +12,8 @@ const Products = new Schema({
     sold: Number,
     size: Array,
     discount: Number,
-    description: String
+    description: String,
+    color: Array
 },{
     collection: 'Products'
 })
