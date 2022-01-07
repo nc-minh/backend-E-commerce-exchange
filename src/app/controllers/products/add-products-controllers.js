@@ -13,6 +13,12 @@ class AddProductsControllers {
         const discount = req.discount
         const color = req.body.color
         const description = req.body.description
+        if(!sold){
+            sold = 0
+        }
+        if(!discount){
+            discount = 0
+        }
 
         Products.create({
             name: name,
