@@ -1,18 +1,23 @@
 const Products = require('../../models/products')
+var xss = require("xss")
+
 class AddProductsControllers {
     addProducts(req, res, next){
-        const name = req.body.name
-        const price = req.body.price
-        const quantity = req.body.quantity
-        const img = req.body.img
-        const video = req.body.video
-        const category = req.body.category
-        const trademark = req.body.trademark
-        const sold = req.body.sold
-        const size = req.body.size
-        const discount = req.discount
-        const color = req.body.color
-        const description = req.body.description
+
+        // get and sanitizing HTML
+        var name = xss(req.body.name)
+        var price = xss(req.body.price)
+        var quantity = xss(req.body.quantity)
+        var img = xss(req.body.img)
+        var video = xss(req.body.video)
+        var category = xss(req.body.category)
+        var trademark = xss(req.body.trademark)
+        var sold = xss(req.body.sold)
+        var size = xss(req.body.size)
+        var discount = xss(req.body.discount)
+        var color = xss(req.body.color)
+        var description = xss(req.body.description)
+        
         if(!sold){
             sold = 0
         }
