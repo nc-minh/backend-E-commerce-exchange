@@ -7,6 +7,7 @@ const loginControllers = require('../app/controllers/accounts/login-controllers'
 const updateProfileControllers = require('../app/controllers/accounts/update-profile-controllers')
 const updatePasswordControllers = require('../app/controllers/accounts/update-password-controllers')
 const getProfileControllers = require('../app/controllers/accounts/get-profile-controllers')
+const softDeleteControllers = require('../app/controllers/accounts/delete/soft-delete-controllers')
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
 
@@ -20,6 +21,10 @@ router.patch('/update-profile', checkRoleControllers.checkLogin, updateProfileCo
 router.patch('/update-password', checkRoleControllers.checkLogin, updatePasswordControllers.updatePassword)
 
 router.get('/get-profile', checkRoleControllers.checkLogin, getProfileControllers.getProfile)
+
+router.delete('/sort-delete/:id', checkRoleControllers.checkAdmin, softDeleteControllers.softDelete)
+
+
 
 
 module.exports = router

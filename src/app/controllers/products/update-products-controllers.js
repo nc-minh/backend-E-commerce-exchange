@@ -21,12 +21,7 @@ class UpdateProductsControllers {
         
 
         const _id = req.body._id
-        console.log(price)
-        console.log(color)
-        console.log(trademark)
-
-        console.log(name)
-        console.log(xss(name))
+        console.log(xss(description))
 
         if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || size != xss(size) || discount != xss(discount) || color != xss(color) || description != xss(description)) {
             res.json({

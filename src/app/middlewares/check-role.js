@@ -6,6 +6,7 @@ class CheckRoleControllers{
         try {
             const token = req.cookies.tokenLogin
             const verify = jwt.verify(token, process.env.JWT_SECRET)
+            req.verify = verify
             if(verify){
                 await Accounts.findOne({
                     _id: verify._id
