@@ -6,7 +6,7 @@ class SoftDeleteControllers {
         var verify = req.verify
         const idUserdeleted = verify._id
         console.log(_idUser)
-        
+
         Accounts.delete({
             _id: _idUser
         }, idUserdeleted)
@@ -34,6 +34,7 @@ class SoftDeleteControllers {
                 })
             }else{
                 res.json({
+                    message: 'error',
                     err: err
                 })
             }
