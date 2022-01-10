@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+var mongooseDelete = require('mongoose-delete')
 
 const Products = new Schema({
     name: String,
@@ -16,6 +17,12 @@ const Products = new Schema({
     color: Array
 },{
     collection: 'Products'
+})
+
+Products.plugin(mongooseDelete, { 
+    deletedAt : true,
+    deletedBy : true,
+    overrideMethods: 'all' 
 })
 
 const productsModel = mongoose.model('Products', Products)

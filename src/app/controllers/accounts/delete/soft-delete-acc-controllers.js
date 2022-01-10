@@ -1,7 +1,7 @@
 const Accounts = require('../../../models/accounts')
-class SoftDeleteControllers {
+class SoftDeleteAccControllers {
     // [DELETE] api/accounts/sort-delete/:id
-    softDelete(req, res, next){
+    softDeleteAcc(req, res, next){
         const _idUser = req.params.id
         var verify = req.verify
         const idUserdeleted = verify._id
@@ -45,4 +45,4 @@ class SoftDeleteControllers {
     }
 }
 
-module.exports = new SoftDeleteControllers
+module.exports = new SoftDeleteAccControllers

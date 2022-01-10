@@ -7,6 +7,7 @@ const getQuantityProductsControllers = require('../app/controllers/products/get-
 const addProductsControllers = require('../app/controllers/products/add-products-controllers')
 const updateProductsControllers = require('../app/controllers/products/update-products-controllers')
 const get1ProductsControllers = require('../app/controllers/products/get-1-products-controllers')
+const softDeleteProductsControllers = require('../app/controllers/products/delete/soft-delete-products-controllers')
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
 
@@ -21,6 +22,6 @@ router.patch('/update-products', checkRoleControllers.checkAdmin, updateProducts
 
 router.get('/get-quantity-products', getQuantityProductsControllers.getQuantityProducts)
 
-
+router.delete('/soft-delete-products/:id', checkRoleControllers.checkAdmin, softDeleteProductsControllers.softDeleteProducts)
 
 module.exports = router
