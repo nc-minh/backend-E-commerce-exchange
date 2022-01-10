@@ -2,8 +2,8 @@ const Accounts = require('../../models/accounts')
 class RegisterControllers{
     // [POST: api/register]
     register(req, res, next){
-        const username = String(req.body.username)
-        const password = String(req.body.password)
+        const username = req.body.username
+        const password = req.body.password
 
         const REGEX = /^\w+$/g
         const regexCheck = REGEX.test(username)
@@ -11,7 +11,12 @@ class RegisterControllers{
         console.log(username)
         console.log(password)
 
-        if(username.length < 5 || password.length < 5 || username.length > 254 || password.length > 254){
+        if(!username || !password){
+            res.json({
+                message: 'Tài khoản và mật khẩu phải không được thiếu hoặc null!',
+                status: 'error-undefined'
+            })
+        }else if(username.length < 5 || password.length < 5 || username.length > 254 || password.length > 254){
             res.json({
                 message: 'Tài khoản và mật khẩu phải trên 5 và ít hơn 254 kí tự!',
                 status: 'error-length'
@@ -34,8 +39,8 @@ class RegisterControllers{
                     })
                 } else {
                     Accounts.create({
-                        username: username,
-                        password: password
+                        username: String(username),
+                        password: String(password)
                     })
                     console.log('tạo tài khoản thành công!')
                     res.json({
