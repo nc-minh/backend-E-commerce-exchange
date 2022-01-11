@@ -5,6 +5,7 @@ const router = express.Router()
 const addCategoryControllers = require('../app/controllers/categogy/add-category-controllers')
 const softDeleteControllers = require('../app/controllers/categogy/soft-delete-category-controllers')
 const getAllCategoryControllers = require('../app/controllers/categogy/get-all-category-controllers')
+const getProductsCategoryControllers = require('../app/controllers/categogy/get-products-category-controllers')
 
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
@@ -15,5 +16,7 @@ router.post('/add-category', checkRoleControllers.checkAdmin, addCategoryControl
 router.delete('/soft-delete-category', checkRoleControllers.checkAdmin, softDeleteControllers.softDeleteCategory)
 
 router.get('/get-all-category', getAllCategoryControllers.getAllCategory)
+
+router.get('/get-products-category', getProductsCategoryControllers.getProductsCategory)
 
 module.exports = router
