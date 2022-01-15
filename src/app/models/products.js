@@ -4,17 +4,18 @@ var mongooseDelete = require('mongoose-delete')
 
 const Products = new Schema({
     name: String,
-    price: Number,
     quantity: Number,
+    sold: Number,
+    price: Number,
+    discount: Number,
     img: Array,
     video: Array,
     category: String,
     trademark: String,
-    sold: Number,
-    size: Array,
-    discount: Number,
-    description: String,
-    color: Array
+    option: Array,
+    color: Array,
+    detail: Array,
+    description: String
 },{
     collection: 'Products'
 })

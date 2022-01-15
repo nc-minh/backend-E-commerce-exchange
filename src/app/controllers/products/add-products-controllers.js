@@ -13,12 +13,38 @@ class AddProductsControllers {
         var category = req.body.category || ' '
         var trademark = req.body.trademark || ' '
         var sold = req.body.sold || 0
-        var size = req.body.size || []
+        var option = req.body.option || []
         var discount = req.body.discount || 0
         var color = req.body.color || []
+        var detail = req.body.detail || []
         var description = req.body.description || ' '
 
-        if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || size != xss(size) || discount != xss(discount) || color != xss(color) || description != xss(description)) {
+        if(name === ' '){
+            res.json({
+                message: 'Không được thiếu tên sản phẩm',
+                status: 'failure'
+            })
+        }else if(img.length === 0){
+            res.json({
+                message: 'Cần ít nhất một ảnh',
+                status: 'failure'
+            })
+        }else if(description === ' '){
+            res.json({
+                message: 'Không được thiếu mô tả sản phẩm',
+                status: 'failure'
+            })
+        }else if(category === ' '){
+            res.json({
+                message: 'Không được thiếu danh mục sản phẩm',
+                status: 'failure'
+            })
+        }else if(detail.length === 0){
+            res.json({
+                message: 'Cần ít nhất một chi tiết sản phẩm',
+                status: 'failure'
+            })
+        }else if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || option != xss(option) || discount != xss(discount) || color != xss(color) || detail != xss(detail) || description != xss(description)) {
             console.log('djt me may xss cc')
             res.json({
                 message: 'Ôi bạn ơi xss cc à :))',
@@ -27,16 +53,17 @@ class AddProductsControllers {
         } else {
             Products.create({
                     name: name,
-                    price: price,
                     quantity: quantity,
+                    sold: sold,
+                    price: price,
+                    discount: discount,
                     img: img,
                     video: video,
                     category: category,
                     trademark: trademark,
-                    sold: sold,
-                    size: size,
-                    discount: discount,
+                    option: option,
                     color: color,
+                    detail: detail,
                     description: description
                 })
                 .then(data => {

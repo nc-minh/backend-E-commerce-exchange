@@ -15,6 +15,7 @@ class GetProductsControllers {
                     res.json({
                         data: data,
                         message: 'success',
+                        note: 'limit, page'
                     })
                 })
                 .catch(err => {
@@ -37,6 +38,7 @@ class GetProductsControllers {
                     res.json({
                         data: data,
                         message: 'success',
+                        note: 'limit'
                     })
                 })
                 .catch(err => {
@@ -59,6 +61,7 @@ class GetProductsControllers {
                     res.json({
                         data: data,
                         message: 'success',
+                        note: 'page'
                     })
                 })
                 .catch(err => {
