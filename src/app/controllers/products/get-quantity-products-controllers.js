@@ -6,7 +6,7 @@ class GetQuantityProductsControllers {
         const discount = Number(req.query.discount)
         console.log(category, trademark, discount)
 
-        if(category && trademark && discount || discount == 0){
+        if(category && trademark && (discount || discount == 0)){
             Products.count({
                 category: category,
                 trademark: trademark,
@@ -43,7 +43,7 @@ class GetQuantityProductsControllers {
                     err: err
                 })
             })
-        }else if(category && discount || discount == 0){
+        }else if(category && (discount || discount == 0)){
             Products.count({
                 category: category,
                 discount: discount
@@ -61,7 +61,7 @@ class GetQuantityProductsControllers {
                     err: err
                 })
             })
-        }else if(trademark && discount || discount == 0){
+        }else if(trademark && (discount || discount == 0)){
             Products.count({
                 discount: discount,
                 trademark: trademark
@@ -119,7 +119,6 @@ class GetQuantityProductsControllers {
                 })
                 .then(data => {
                     console.log(data)
-                    console.log('helo')
                     res.json({
                         status: 'success',
                         quantity: data,

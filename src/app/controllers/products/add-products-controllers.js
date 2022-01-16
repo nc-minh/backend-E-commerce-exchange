@@ -44,6 +44,11 @@ class AddProductsControllers {
                 message: 'Cần ít nhất một chi tiết sản phẩm',
                 status: 'failure'
             })
+        }else if(discount < 0 || discount > 100){
+            res.json({
+                message: 'Mức giảm giá (%) từ 0->100',
+                status: 'failure'
+            })
         }else if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || option != xss(option) || discount != xss(discount) || color != xss(color) || detail != xss(detail) || description != xss(description)) {
             console.log('djt me may xss cc')
             res.json({
