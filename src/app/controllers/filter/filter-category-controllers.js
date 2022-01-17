@@ -18,22 +18,18 @@ class FilterCategoryControllers {
             sort = {
                 price: descending
             }
-            console.log('giá giảm dần')
         }else if(price === 'false'){
             sort = {
                 price: ascending
             }
-            console.log('giá tăng dần')
         }else if(discount === 'true'){
             sort = {
                 discount: descending
             }
-            console.log('giảm giá giảm dần')
         }else if(discount === 'false'){
             sort = {
                 discount: ascending
             }
-            console.log('giảm giá tăng dần')
         }if(!minPrice || !maxPrice){
             minPrice = 0
             maxPrice = 999999999999999

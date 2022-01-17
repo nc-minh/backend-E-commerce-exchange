@@ -1,7 +1,4 @@
-// Using Node.js `require()`
 const mongoose = require('mongoose')
-
-// mongoose.connect('mongodb://localhost:27017/')
 
 async function connect(){
     try {
@@ -16,13 +13,3 @@ async function connect(){
 }
 
 module.exports = { connect }
-
-/**
- * $gt $gte >
- * $lt $lte <
- * $or
- * $in
- * limit
- * sort
- * skip
- */

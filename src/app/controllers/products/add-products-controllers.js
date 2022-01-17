@@ -50,7 +50,7 @@ class AddProductsControllers {
                 status: 'failure'
             })
         }else if (name != xss(name) || price != xss(price) || quantity != xss(quantity) || img != xss(img) || video != xss(video) || category != xss(category) || trademark != xss(trademark) || sold != xss(sold) || option != xss(option) || discount != xss(discount) || color != xss(color) || detail != xss(detail) || description != xss(description)) {
-            console.log('djt me may xss cc')
+            
             res.json({
                 message: 'Ôi bạn ơi xss cc à :))',
                 status: 'error'
@@ -72,13 +72,11 @@ class AddProductsControllers {
                     description: description
                 })
                 .then(data => {
-                    console.log(data)
                     res.json({
                         data: data
                     })
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json({
                         err: err
                     })

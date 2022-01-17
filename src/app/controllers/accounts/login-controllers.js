@@ -21,8 +21,6 @@ class LoginControllers{
                     expiresIn: EXPIRESIN
                 })
 
-                console.log(data)
-
                 res.status(200).json({
                     message: 'Đăng nhập thành công!',
                     status: 'success',
@@ -37,7 +35,6 @@ class LoginControllers{
             }
         })
         .catch(err => {
-            console.log(err)
             res.status(500).json({
                 message: 'Đã có lỗi xảy ra!',
                 status: 'error'

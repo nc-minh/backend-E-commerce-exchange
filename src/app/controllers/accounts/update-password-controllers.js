@@ -4,7 +4,6 @@ class UpdatePassWordControllers {
     updatePassword(req, res, next){
         const verify = req.verify
         const newPassword = String(req.body.newPassword)
-        console.log(newPassword)
         if(!newPassword){
             res.json({
                 message: 'Không được để trống mật khẩu!',
@@ -22,7 +21,6 @@ class UpdatePassWordControllers {
                 password: newPassword
             })
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     res.json({
                         message: 'Cập nhật mật khẩu mới thành công!',
@@ -37,7 +35,6 @@ class UpdatePassWordControllers {
                 
             })
             .catch(err => {
-                console.log(err)
                 res.json({
                     err: err
                 })

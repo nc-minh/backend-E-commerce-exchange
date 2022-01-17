@@ -4,7 +4,6 @@ class GetAllControllers {
 
         Category.find({})
             .then(data => {
-                console.log(data)
                 var list = []
                 data.forEach(item => list.push(item.name))
 
@@ -15,7 +14,6 @@ class GetAllControllers {
 
             })
             .catch(err => {
-                console.log(err)
                 res.json({
                     err: err
                 })

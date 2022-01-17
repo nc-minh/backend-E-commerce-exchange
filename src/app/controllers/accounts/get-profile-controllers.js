@@ -7,7 +7,6 @@ class GetProfileControllers {
                 _id: verify._id
             })
             .then(data => {
-                console.log(data)
                 res.json({
                     username: data.username,
                     address: data.address,
@@ -17,7 +16,6 @@ class GetProfileControllers {
                 })
             })
             .catch(err => {
-                console.log(err)
                 if(err.name === 'CastError'){
                     res.json({
                         message: 'Không tìm thấy user!',

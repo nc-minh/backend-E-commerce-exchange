@@ -22,7 +22,6 @@ class CheckRoleControllers{
                     }
                 })
                 .catch(err => {
-                    console.log(err)
                     res.status(500).json({
                         message: err,
                         status: 'error'
@@ -30,7 +29,6 @@ class CheckRoleControllers{
                 })
             }
         } catch (error) {
-            console.log(error)
             if(error.name === 'JsonWebTokenError'){
                 res.status(400).json({
                     message: 'Token vừa gửi đã sai!',
@@ -64,7 +62,6 @@ class CheckRoleControllers{
                 })
             }
         } catch (error) {
-            console.log(error)
             
             if(error.name === 'JsonWebTokenError'){
                 res.status(400).json({

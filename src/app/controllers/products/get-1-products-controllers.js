@@ -8,13 +8,11 @@ class Get1ProductsControllers {
             "_id": ObjectID(_id)
         })
         .then(data => {
-            console.log(data)
             res.json({
                 data: data
             })
         })
         .catch(err => {
-            console.log(err)
             res.json({
                 err: err
             })

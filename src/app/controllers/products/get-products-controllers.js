@@ -19,7 +19,6 @@ class GetProductsControllers {
                     })
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json({
                         err: err
                     })
@@ -65,13 +64,11 @@ class GetProductsControllers {
                     })
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json({
                         err: err
                     })
                 })
             } catch (error) {
-                console.log(error)
                     res.json({
                         error: error
                     })
@@ -93,7 +90,6 @@ class GetProductsControllers {
                     })
                 })
             } catch (error) {
-                console.log(error)
                     res.json({
                         error: error
                     })

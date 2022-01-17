@@ -15,7 +15,6 @@ class SoftDeleteControllers{
                 name: String(name)
             }, userDeleted)
             .then(data => {
-                console.log(data)
                 if(data.matchedCount === 1){
                     res.json({
                         message: 'Xóa thành công danh mục!',
@@ -30,7 +29,6 @@ class SoftDeleteControllers{
                 
             })
             .catch(err => {
-                console.log(err)
                 res.json({
                     err: err
                 })

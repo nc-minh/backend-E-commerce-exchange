@@ -47,7 +47,6 @@ class UpdateProductsControllers {
                     color: color
                 })
                 .then(data => {
-                    console.log(data)
                     if(data.matchedCount === 0){
                         res.json({
                             message: 'Không tìm thấy!'
@@ -61,7 +60,6 @@ class UpdateProductsControllers {
                     
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json({
                         err: err
                     })

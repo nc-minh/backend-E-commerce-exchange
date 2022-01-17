@@ -5,13 +5,11 @@ class SoftDeleteProductsControllers {
         const _idProducts = req.params.id
         var verify = req.verify
         const idUserdeleted = verify._id
-        console.log(_idProducts)
 
         Products.delete({
             _id: _idProducts
         }, idUserdeleted)
         .then(data => {
-            console.log(data)
             if(data.matchedCount === 0){
                 res.json({
                     message: 'Không tìm thấy sản phẩm!',
@@ -26,7 +24,6 @@ class SoftDeleteProductsControllers {
             
         })
         .catch(err => {
-            console.log(err)
             if(err.name === 'CastError'){
                 res.json({
                     message: 'Truyền sai định dạng id cần xóa!',

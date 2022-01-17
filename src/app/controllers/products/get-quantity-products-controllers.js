@@ -4,7 +4,6 @@ class GetQuantityProductsControllers {
         const category = req.query.category
         const trademark = req.query.trademark
         const discount = Number(req.query.discount)
-        console.log(category, trademark, discount)
 
         if(category && trademark && (discount || discount == 0)){
             Products.count({
@@ -13,7 +12,6 @@ class GetQuantityProductsControllers {
                 discount: discount
             })
             .then(data => {
-                console.log(data)
                 res.json({
                     status: 'success',
                     quantity: data,
@@ -31,7 +29,6 @@ class GetQuantityProductsControllers {
                 trademark: trademark
             })
             .then(data => {
-                console.log(data)
                 res.json({
                     status: 'success',
                     quantity: data,
@@ -49,7 +46,6 @@ class GetQuantityProductsControllers {
                 discount: discount
             })
             .then(data => {
-                console.log(data)
                 res.json({
                     status: 'success',
                     quantity: data,
@@ -67,7 +63,6 @@ class GetQuantityProductsControllers {
                 trademark: trademark
             })
             .then(data => {
-                console.log(data)
                 res.json({
                     status: 'success',
                     quantity: data,
@@ -84,7 +79,6 @@ class GetQuantityProductsControllers {
                     category: category
                 })
                 .then(data => {
-                    console.log(data)
                     res.json({
                         status: 'success',
                         quantity: data,
@@ -101,7 +95,6 @@ class GetQuantityProductsControllers {
                     trademark: trademark
                 })
                 .then(data => {
-                    console.log(data)
                     res.json({
                         status: 'success',
                         quantity: data,
@@ -118,7 +111,6 @@ class GetQuantityProductsControllers {
                     discount: discount
                 })
                 .then(data => {
-                    console.log(data)
                     res.json({
                         status: 'success',
                         quantity: data,
@@ -133,7 +125,6 @@ class GetQuantityProductsControllers {
         } else {
             Products.count({})
                 .then(data => {
-                    console.log(data)
                     res.json({
                         status: 'success',
                         quantity: data,

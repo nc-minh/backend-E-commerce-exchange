@@ -28,7 +28,6 @@ class UpdateProfileControllers {
                     address: address
                 })
                 .then(data => {
-                    console.log(data)
                     if (data.acknowledged) {
                         res.json({
                             message: 'Cập nhật thông tin thành công!',
@@ -42,7 +41,6 @@ class UpdateProfileControllers {
                     }
                 })
                 .catch(err => {
-                    console.log(err)
                     res.json({
                         err: err
                     })

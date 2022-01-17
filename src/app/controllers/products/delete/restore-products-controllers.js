@@ -8,7 +8,6 @@ class RestoreProductsControllers {
             _id: _idProducts
         })
         .then(data => {
-            console.log(data)
             if(data.matchedCount === 0){
                 res.json({
                     message: 'Không tìm thấy sản phẩm!',
@@ -28,7 +27,6 @@ class RestoreProductsControllers {
             
         })
         .catch(err => {
-            console.log(err)
             if(err.name === 'CastError'){
                 res.json({
                     message: 'Truyền sai định dạng id cần restore!',

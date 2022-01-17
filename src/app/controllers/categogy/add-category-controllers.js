@@ -13,20 +13,17 @@ class AddCategoryControllers{
                 name: String(name)
             })
             .then(data => {
-                console.log(data)
                 if(data === null){
                     Category.create({
                         name: String(name)
                     })
                     .then(data => {
-                        console.log(data)
                         res.json({
                             message: 'Thêm danh mục thành công!',
                             status: 'success'
                         })
                     })
                     .catch(err => {
-                        console.log(err)
                         res.json({
                             err: err
                         })
@@ -40,7 +37,6 @@ class AddCategoryControllers{
                 
             })
             .catch(err => {
-                console.log(err)
                 res.json({
                     err: err
                 })
