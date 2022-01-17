@@ -20,7 +20,6 @@ class GetProductsCategoryControllers {
                     data: data
                 })
             }
-            
         })
         .catch(err => {
             console.log(err)
