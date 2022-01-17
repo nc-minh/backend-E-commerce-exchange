@@ -26,6 +26,13 @@ Products.plugin(mongooseDelete, {
     overrideMethods: 'all' 
 })
 
+Products.index({
+    name: 'text',
+    description: 'text'
+})
+
+
+
 const productsModel = mongoose.model('Products', Products)
 
 module.exports = productsModel

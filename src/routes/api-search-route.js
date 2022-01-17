@@ -7,6 +7,6 @@ const searchControllers = require('../app/controllers/search/search-controllers'
 const checkRoleControllers = require('../app/middlewares/check-role')
 
 //route list
-router.post('/', searchControllers.search)
+router.get('/', searchControllers.search)
 
 module.exports = router

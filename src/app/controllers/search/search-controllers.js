@@ -2,6 +2,7 @@ const Products = require('../../models/products')
 class Search{
     async search(req, res, next){
         const keyword = req.query.keyword
+
         if(!keyword){
             res.json({
                 message: 'Thiếu từ khóa cần tìm kiếm!',
@@ -12,13 +13,36 @@ class Search{
             // }
         }else{
             await Products.find({
-                name: new RegExp(keyword, 'i')
+                $text: {
+                    $search: keyword
+                }
             })
-            .then(data => {
+            .then( async data => {
                 console.log(data)
-                res.json({
-                    data: data
-                })
+                if(data.length === 0){
+                    // await Products.find({
+                    //     description: new RegExp(keyword, 'i')
+                    // })
+                    // .then(data => {
+                    //     res.json({
+                    //         data: data
+                    //     })
+                    // })
+                    // .catch(error => {
+                    //     console.log(error)
+                    //     res.json({
+                    //         error: error
+                    //     })
+                    // })
+                    res.json('huhu')
+
+                }else{
+                    res.json({
+                        data: data
+                    })
+                }
+
+                
             })
             .catch(error => {
                 console.log(error)
