@@ -16,19 +16,21 @@ const Products = new Schema({
     color: Array,
     detail: Array,
     description: String
-},{
+}, {
     collection: 'Products'
 })
 
-Products.plugin(mongooseDelete, { 
-    deletedAt : true,
-    deletedBy : true,
-    overrideMethods: 'all' 
+Products.plugin(mongooseDelete, {
+    deletedAt: true,
+    deletedBy: true,
+    overrideMethods: 'all'
 })
 
 Products.index({
     name: 'text',
     description: 'text'
+}, {
+    default_language: 'vi'
 })
 
 

@@ -18,8 +18,8 @@ async function connect(){
 module.exports = { connect }
 
 /**
- * $gt $gte
- * $lt $lte
+ * $gt $gte >
+ * $lt $lte <
  * $or
  * $in
  * limit
