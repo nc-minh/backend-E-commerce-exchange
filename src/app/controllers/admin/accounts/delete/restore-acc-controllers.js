@@ -1,4 +1,4 @@
-const Accounts = require('../../../models/accounts')
+const Accounts = require('../../../../models/accounts')
 class RestoreAccControllers {
     // [PATCH] api/accounts/restore-acc/:id
     restoreAcc(req, res, next){

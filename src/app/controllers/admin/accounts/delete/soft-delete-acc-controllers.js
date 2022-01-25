@@ -1,4 +1,4 @@
-const Accounts = require('../../../models/accounts')
+const Accounts = require('../../../../models/accounts')
 class SoftDeleteAccControllers {
     // [DELETE] api/accounts/sort-delete/:id
     softDeleteAcc(req, res, next){

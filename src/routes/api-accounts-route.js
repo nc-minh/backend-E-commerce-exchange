@@ -7,9 +7,9 @@ const loginControllers = require('../app/controllers/accounts/login-controllers'
 const updateProfileControllers = require('../app/controllers/accounts/update-profile-controllers')
 const updatePasswordControllers = require('../app/controllers/accounts/update-password-controllers')
 const getProfileControllers = require('../app/controllers/accounts/get-profile-controllers')
-const softDeleteAccControllers = require('../app/controllers/admin/delete/soft-delete-acc-controllers')
-const restoreAccControllers = require('../app/controllers/admin/delete/restore-acc-controllers')
-const forceDeleteAccControllers = require('../app/controllers/admin/delete/force-delete-acc-controllers')
+const softDeleteAccControllers = require('../app/controllers/admin/accounts/delete/soft-delete-acc-controllers')
+const restoreAccControllers = require('../app/controllers/admin/accounts/delete/restore-acc-controllers')
+const forceDeleteAccControllers = require('../app/controllers/admin/accounts/delete/force-delete-acc-controllers')
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
 
