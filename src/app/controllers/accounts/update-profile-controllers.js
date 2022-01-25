@@ -7,7 +7,6 @@ class UpdateProfileControllers {
         const email = req.body.email
         const address = req.body.address || ' '
         
-
         const REGEX = /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/
         const regexCheck = REGEX.test(email)
         if (image.length > 254 || email.length > 254 || address.length > 254) {
