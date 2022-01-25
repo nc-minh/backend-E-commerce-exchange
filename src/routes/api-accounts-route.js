@@ -27,7 +27,4 @@ router.delete('/soft-delete-acc/:id', checkRoleControllers.checkAdmin, softDelet
 
 router.patch('/restore-acc/:id', checkRoleControllers.checkAdmin, restoreAccControllers.restoreAcc)
 
-
-
-
 module.exports = router
