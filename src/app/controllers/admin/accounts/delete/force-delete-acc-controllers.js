@@ -1,4 +1,4 @@
-const Accounts = require('../../../models/accounts')
+const Accounts = require('../../../../models/accounts')
 class ForceDeleteAccControllers {
     forceDeleteAcc(req, res, next){
         const _idUser = req.params.id

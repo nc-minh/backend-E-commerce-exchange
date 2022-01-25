@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 //controllers
-const getAllUserControllers = require('../../app/controllers/admin/get/get-all-user-controllers')
+const getAllUserControllers = require('../../app/controllers/admin/accounts/get/get-all-user-controllers')
 
 //middlewares
 const checkRoleControllers = require('../../app/middlewares/check-role')

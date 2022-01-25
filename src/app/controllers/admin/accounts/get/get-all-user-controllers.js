@@ -1,4 +1,4 @@
-const Accounts = require('../../../models/accounts')
+const Accounts = require('../../../../models/accounts')
 class GetAllUserControllers{
     getAllUser(req, res, next){
         Accounts.find({})
