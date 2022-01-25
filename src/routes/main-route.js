@@ -4,6 +4,7 @@ const apiProductsRouter = require('./api-products-route')
 const apiCategoryRouter = require('./api-category-route')
 const apiSearchRouter = require('./api-search-route')
 const apiFilterRouter = require('./api-filter-route')
+const apiAdminRouter = require('./admin/api-admin-accounts-route')
 
 function routeMap(app){
     app.use('/api/accounts', apiAccountsRouter)
@@ -15,6 +16,8 @@ function routeMap(app){
     app.use('/api/search', apiSearchRouter)
     
     app.use('/api/filter', apiFilterRouter)
+
+    app.use('/admin/accounts', apiAdminRouter)
 
     app.use('/', homeRouter)
 }
