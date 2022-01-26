@@ -1,5 +1,3 @@
-const jwt = require('jsonwebtoken')
-const Accounts = require('../../models/accounts')
 const BlackListToken = require('../../models/blacklist-token')
 
 class LogoutControllers{
