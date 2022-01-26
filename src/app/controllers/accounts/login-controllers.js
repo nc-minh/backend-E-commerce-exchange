@@ -17,7 +17,7 @@ class LoginControllers{
             if(data){
                 var token = jwt.sign({
                     _id: data._id
-                }, process.env.JWT_SECRET, {
+                }, process.env.JWT_SECRET,{
                     expiresIn: EXPIRESIN
                 })
 
