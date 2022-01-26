@@ -24,6 +24,10 @@ DB.connect()
 const route = require('./src/routes/main-route')
 route(app)
 
+//require background job -> delete the expired token
+require('./src/app/background-job/background-job')
+
+
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)

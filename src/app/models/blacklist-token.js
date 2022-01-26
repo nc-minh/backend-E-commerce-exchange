@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 const BlackListToken = new Schema({
     token: String,
-    deleteAt: Date
+    deleteAt: Date,
+    ready: Boolean
 },{
     collection: 'BlackListToken'
 })
