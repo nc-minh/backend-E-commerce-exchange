@@ -1,7 +1,9 @@
 const schedule = require('node-schedule')
 const BlackListToken = require('../../app/models/blacklist-token')
 const rule = new schedule.RecurrenceRule()
-rule.second = 5
+rule.hour = 0
+rule.minute = 0
+rule.second = 0
 
 const deleteExpiredToken = schedule.scheduleJob(rule, async function(){
     const EXPIRESIN = 2
