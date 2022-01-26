@@ -10,6 +10,7 @@ const getProfileControllers = require('../app/controllers/accounts/get-profile-c
 const softDeleteAccControllers = require('../app/controllers/admin/accounts/delete/soft-delete-acc-controllers')
 const restoreAccControllers = require('../app/controllers/admin/accounts/delete/restore-acc-controllers')
 const forceDeleteAccControllers = require('../app/controllers/admin/accounts/delete/force-delete-acc-controllers')
+const logoutControllers = require('../app/controllers/accounts/logout-controllers')
 //middlewares
 const checkRoleControllers = require('../app/middlewares/check-role')
 
@@ -17,6 +18,8 @@ const checkRoleControllers = require('../app/middlewares/check-role')
 router.post('/register', registerControllers.register)
 
 router.post('/login', loginControllers.login)
+
+router.delete('/logout', checkRoleControllers.checkLogin, logoutControllers.logout)
 
 router.patch('/update-profile', checkRoleControllers.checkLogin, updateProfileControllers.updateProfile)
 
