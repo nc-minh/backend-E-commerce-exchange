@@ -41,6 +41,8 @@ https://backend-e-commerce-exchange-production.up.railway.app/
 
 `/api/products/soft-delete-products/:id`
 
+`/api/products/force-delete-products/:id`
+
 `/api/products/restore-products/:id`
 
 ### /api/category
