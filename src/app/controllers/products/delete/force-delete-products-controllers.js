@@ -3,21 +3,21 @@ class ForceDeleteProductsControllers {
     // [DELETE] api/products/force-delete-products/:id
     softDeleteProducts(req, res, next){
         const _idProducts = req.params.id
-        var verify = req.verify
-        const idUserdeleted = verify._id
 
-        Products.delete({
+        Products.deleteOne({
             _id: _idProducts
-        }, idUserdeleted)
+        })
         .then(data => {
-            if(data.matchedCount === 0){
+            console.log(data)
+
+            if(data.deletedCount === 0){
                 res.json({
-                    message: 'Không tìm thấy sản phẩm!',
+                    message: 'Không tìm thấy product!',
                     status: 'failure'
                 })
             }else{
                 res.json({
-                    message: 'Xóa thành công sản phẩm!',
+                    message: 'Xóa thành công user trên DB!',
                     status: 'success'
                 })
             }
